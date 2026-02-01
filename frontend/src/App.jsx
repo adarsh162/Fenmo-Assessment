@@ -2,6 +2,8 @@ import { useExpenses } from './hooks/useExpenses';
 import ExpenseForm from './components/ExpenseForm';
 import ExpenseList from './components/ExpenseList';
 import FilterBar from './components/FilterBar';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css'
 import './index.css'
 
@@ -49,7 +51,8 @@ function App() {
           </div>
         </main>
       </div>
-    </div>
+      <ToastContainer position="top-right" autoClose={3000} />
+    </div>  
   );
 }
 

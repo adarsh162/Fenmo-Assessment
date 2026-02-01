@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { expenseService } from '../api/expense';
+import { toast } from 'react-toastify';
 
 const ExpenseForm = ({ onRefresh }) => {
   const [formData, setFormData] = useState({
@@ -19,6 +20,7 @@ const ExpenseForm = ({ onRefresh }) => {
       setFormData({ amount: '', category: '', description: '', expense_date: '' });
       setRequestId(uuidv4());
       onRefresh(); 
+      toast.success('Expense added successfully!');
     } catch (err) {
       if (err.response && err.response.status === 422) {
         // Handle Pydantic Validation Errors
@@ -28,10 +30,10 @@ const ExpenseForm = ({ onRefresh }) => {
           const fieldName = error.loc[1];
           validationErrors[fieldName] = error.msg;
         });
-        alert("Validation error: " + JSON.stringify(validationErrors, null, 2));
+        toast.error(JSON.stringify(validationErrors));
       } else {
         // Handle Network or 500 Errors
-        alert('Something went wrong. Please try again later.');
+        toast.error('Server error. Please try again later.')
       }
     } finally {
       setSubmitting(false);
