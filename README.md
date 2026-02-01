@@ -13,7 +13,7 @@ A production-grade expense management system built with **FastAPI** and **React*
 
 ### **Backend: FastAPI & PostgreSQL**
 * **FastAPI:** Chosen for its native support for **Asynchronous** operations and strict **Pydantic** validation. This ensures only valid financial data reaches the database.
-* **PostgreSQL:** Used for its robust support of the `Numeric` type, which is critical for preventing floating-point errors in currency.
+* **PostgreSQL:** Used for its robust support of the `Numeric` type, which is critical for preventing floating-point errors in currency, via the Render PostgreSQL instance.
 * **SQLAlchemy (ORM):** Provides a clean abstraction while enforcing unique constraints (like `request_id`) at the database engine level.
 
 ### **Frontend: React (Vite) & Tailwind CSS**
