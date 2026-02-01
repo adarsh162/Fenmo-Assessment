@@ -59,7 +59,6 @@ const ExpenseForm = ({ onRefresh }) => {
           <option value="Rent">Rent</option>
           <option value="Sports">Sports</option>
           <option value="Movies">Movies</option>
-          <option value="Vehicle">Vehicle</option>
           <option value="Transport">Transport</option>
           <option value="Entertainment">Entertainment</option>
         </select>

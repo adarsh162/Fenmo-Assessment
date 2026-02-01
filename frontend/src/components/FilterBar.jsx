@@ -21,6 +21,8 @@ const FilterBar = ({ onFilterChange }) => {
         <option value="Rent">Rent</option>
         <option value="Transport">Transport</option>
         <option value="Entertainment">Entertainment</option>
+        <option value="Sports">Sports</option>
+        <option value="Movies">Movies</option>
       </select>
 
       <select 
