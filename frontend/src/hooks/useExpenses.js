@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
-import { expenseService } from '../services/api';
+import { expenseService } from '../api/expense';
 
 export const useExpenses = () => {
   const [expenses, setExpenses] = useState([]);

@@ -39,7 +39,7 @@ const ExpenseList = ({ expenses, isLoading }) => {
                 {expense.description || '-'}
               </td>
               <td className="px-6 py-4 whitespace-nowrap text-sm text-right font-bold text-gray-900">
-                ${parseFloat(expense.amount).toFixed(2)}
+                ₹{parseFloat(expense.amount).toFixed(2)}
               </td>
             </tr>
           ))}

@@ -20,7 +20,7 @@ function App() {
           <div className="bg-white p-4 rounded-xl shadow-sm border-l-4 border-green-500 min-w-[200px]">
             <span className="text-xs font-bold text-gray-400 uppercase block">Total Expenses</span>
             <span className="text-3xl font-mono font-bold text-gray-800">
-              ${totalAmount.toLocaleString(undefined, { minimumFractionDigits: 2 })}
+              ₹{totalAmount.toLocaleString(undefined, { minimumFractionDigits: 2 })}
             </span>
           </div>
         </header>

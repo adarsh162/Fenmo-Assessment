@@ -8,7 +8,7 @@ from app.api.v1 import router as api_router
 # Create tables on startup (Only if they don't exist)
 Base.metadata.create_all(bind=engine)
 
-app = FastAPI(title=settings.PROJECT_NAME, version=settings.VERSION)
+app = FastAPI(title=settings.PROJECT_NAME, version=settings.VERSION, redirect_slashes=False)
 
 if settings.BACKEND_CORS_ORIGINS:
     app.add_middleware(
