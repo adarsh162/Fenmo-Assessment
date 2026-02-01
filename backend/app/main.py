@@ -2,6 +2,7 @@ from app.core.config import settings
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.db.database import engine, Base
+from app.models.expense import Expense
 from app.api.v1 import router as api_router
 
 # Create tables on startup (Only if they don't exist)
