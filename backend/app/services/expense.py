@@ -8,10 +8,10 @@ class ExpenseService:
         # Check if already exists (Idempotency check before trying insert)
         existing = crud_expense.get_by_request_id(db, expense_in.request_id)
         if existing:
-            return existing
+            return existing, False
 
         try:
-            return crud_expense.create_expense(db, expense_in)
+            return crud_expense.create_expense(db, expense_in), True
         except IntegrityError:
             db.rollback()
             return crud_expense.get_by_request_id(db, expense_in.request_id)
