@@ -20,7 +20,19 @@ const ExpenseForm = ({ onRefresh }) => {
       setRequestId(uuidv4());
       onRefresh(); 
     } catch (err) {
-      alert("Submission failed. Please check your connection.");
+      if (err.response && err.response.status === 422) {
+        // Handle Pydantic Validation Errors
+        const validationErrors = {};
+        err.response.data.detail.forEach((error) => {
+          // Map the field name (loc[1]) to the error message
+          const fieldName = error.loc[1];
+          validationErrors[fieldName] = error.msg;
+        });
+        alert("Validation error: " + JSON.stringify(validationErrors, null, 2));
+      } else {
+        // Handle Network or 500 Errors
+        alert('Something went wrong. Please try again later.');
+      }
     } finally {
       setSubmitting(false);
     }
